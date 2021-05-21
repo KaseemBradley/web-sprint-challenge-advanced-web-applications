@@ -1,39 +1,42 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
-const initialState = {
-  username: "Lambda",
-  password: "i<3Lambd4",
-};
-
 const Login = (props) => {
-  // make a post request to retrieve a token from the api
-  // when you have handled the token, navigate to the BubblePage route
-
-  useEffect(() => {
-    // make a post request to retrieve a token from the api
-    // when you have handled the token, navigate to the BubblePage route
+  const history = useHistory();
+  const [credentials, setCredentials] = useState({
+    username: "",
+    password: "",
+    error: "",
   });
 
-  const error = "";
-  //replace with error state
+  const handleChange = (e) => {
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
+  };
 
   return (
     <div>
       <h1>Welcome to the Bubble App!</h1>
       <div data-testid="loginForm" className="login-form">
         <form>
-          <input placeholder="name" data-testid="username" />
+          <input
+            placeholder="name"
+            data-testid="username"
+            value={credentials.username}
+            onChange={handleChange}
+          />
           <input
             type="password"
             placeholder="password"
             data-testid="password"
+            value={credentials.password}
+            onChange={handleChange}
           />
         </form>
       </div>
 
       <p data-testid="errorMessage" className="error">
-        {error}
+        {credentials.errorerror}
       </p>
     </div>
   );
