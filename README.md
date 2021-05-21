@@ -32,10 +32,10 @@ In this project you will create a login page and request a token from the server
 
 ### Task 2: CodeGrade Setup
 
-- [ ] Open the assignment in Canvas and click on the "Set up git" option.
-- [ ] Follow instructions to set up Codegrade's Webhook and Deploy Key, making sure your deployment is set to your `<firstName-lastName>`.
-- [ ] Push your first commit: `git commit --allow-empty -m "first commit" && git push`
-- [ ] Check to see that Codegrade has accepted your git submission.
+- [ x ] Open the assignment in Canvas and click on the "Set up git" option.
+- [ x ] Follow instructions to set up Codegrade's Webhook and Deploy Key, making sure your deployment is set to your `<firstName-lastName>`.
+- [ x ] Push your first commit: `git commit --allow-empty -m "first commit" && git push`
+- [ x ] Check to see that Codegrade has accepted your git submission.
 
 ### Task 3: Project Requirements
 
