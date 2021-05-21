@@ -30,7 +30,17 @@ const ColorList = ({ colors, updateColors }) => {
       });
   };
 
-  const deleteColor = (color) => {};
+  const deleteColor = (color) => {
+    axiosWithAuth()
+      .delete(`/colors/${color.id}`)
+      .then((res) => {
+        updateColors(
+          colors.filter((item) => {
+            return item.id !== color.id;
+          })
+        );
+      });
+  };
 
   return (
     <div className="colors-wrap">
