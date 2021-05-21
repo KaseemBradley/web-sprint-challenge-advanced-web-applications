@@ -1,6 +1,12 @@
 import React, { useEffect } from "react";
+import axios from "axios";
 
-const Login = () => {
+const initialState = {
+  username: "Lambda",
+  password: "i<3Lambd4",
+};
+
+const Login = (props) => {
   // make a post request to retrieve a token from the api
   // when you have handled the token, navigate to the BubblePage route
 
@@ -17,8 +23,12 @@ const Login = () => {
       <h1>Welcome to the Bubble App!</h1>
       <div data-testid="loginForm" className="login-form">
         <form>
-          <input placeholder="name" />
-          <input type="password" placeholder="password" />
+          <input placeholder="name" data-testid="username" />
+          <input
+            type="password"
+            placeholder="password"
+            data-testid="password"
+          />
         </form>
       </div>
 
