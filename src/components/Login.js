@@ -14,16 +14,33 @@ const Login = (props) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:5000/api/login", credentials)
+      .then((res) => {
+        console.log(res);
+        localStorage.setItem("token", res.data.payload);
+      })
+      .catch((err) => {
+        setCredentials({
+          ...credentials,
+          error: "Username or Password not valid.",
+        });
+      });
+  };
+
   return (
     <div>
       <h1>Welcome to the Bubble App!</h1>
       <div data-testid="loginForm" className="login-form">
-        <form>
+        <form onSubmit={onSubmit}>
           <input
             placeholder="name"
             data-testid="username"
             value={credentials.username}
             onChange={handleChange}
+            name="username"
           />
           <input
             type="password"
@@ -31,7 +48,9 @@ const Login = (props) => {
             data-testid="password"
             value={credentials.password}
             onChange={handleChange}
+            name="password"
           />
+          <button>Login</button>
         </form>
       </div>
 
